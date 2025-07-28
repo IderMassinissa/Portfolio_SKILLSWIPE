@@ -1,0 +1,15 @@
+{
+    "name": "ider-m/skillswipe",
+    "description": "Application de matching étudiant/entreprise en PHP",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Massinissa"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "phpmailer/phpmailer": "^6.10"
+    }
+}

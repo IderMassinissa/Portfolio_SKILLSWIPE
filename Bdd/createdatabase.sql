@@ -1,0 +1,221 @@
+DROP DATABASE IF EXISTS skillswipe;
+
+CREATE DATABASE IF NOT EXISTS skillswipe;
+
+USE skillswipe;
+
+CREATE TABLE Localisation (
+    ID INT PRIMARY KEY AUTO_INCREMENT,
+    Address_Name VARCHAR(255),
+    Latitude FLOAT,
+    Longitude FLOAT,
+    AddressType VARCHAR(255)
+);
+ 
+CREATE TABLE Industry (
+    ID INT PRIMARY KEY AUTO_INCREMENT,
+    Name VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE Department (
+    ID INT PRIMARY KEY AUTO_INCREMENT,
+    Name VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE City (
+    ID INT PRIMARY KEY AUTO_INCREMENT,
+    Name VARCHAR(255) NOT NULL,
+    Department_ID INT,
+    FOREIGN KEY (Department_ID) REFERENCES Department (ID)
+);
+
+CREATE TABLE User (
+    ID INT PRIMARY KEY AUTO_INCREMENT,
+    Name VARCHAR(255) NOT NULL,
+    Phone_number VARCHAR(20),
+    Email VARCHAR(255) UNIQUE,
+    Address_ID INT,
+    Password VARCHAR(255) NOT NULL,
+    User_type VARCHAR(50),
+    user_description TEXT,
+    FOREIGN KEY (Address_ID) REFERENCES Localisation (ID)
+);
+ 
+CREATE TABLE Media (
+    ID INT PRIMARY KEY AUTO_INCREMENT,
+    User_ID INT,
+    Name VARCHAR(255) NOT NULL,
+    Path VARCHAR(255) NOT NULL,
+    FOREIGN KEY (User_ID) REFERENCES User (ID)
+);
+
+CREATE TABLE Company (
+    ID INT PRIMARY KEY AUTO_INCREMENT,
+    User_ID INT NOT NULL UNIQUE,
+    Name VARCHAR(255),
+    SIRET VARCHAR(14) UNIQUE,
+    Legal_Status VARCHAR(100),
+    Year_Established YEAR,
+    Size VARCHAR(50),
+    Share_Capital DECIMAL(15, 2),
+    Website VARCHAR(255),
+    APE_Code VARCHAR(10),
+    Address_ID INT,
+    FOREIGN KEY (User_ID) REFERENCES User (ID),
+    FOREIGN KEY (Address_ID) REFERENCES Localisation (ID)
+);
+
+CREATE TABLE Recruiter (
+    ID INT PRIMARY KEY,
+    Company_ID INT,
+    FOREIGN KEY (ID) REFERENCES User (ID),
+    FOREIGN KEY (Company_ID) REFERENCES Company (ID)
+);
+
+CREATE TABLE Job_Description (
+    ID INT PRIMARY KEY AUTO_INCREMENT,
+    Description TEXT
+);
+
+CREATE TABLE Contract (
+    ID INT PRIMARY KEY AUTO_INCREMENT,
+    Name VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE Work_Mode (
+    ID INT PRIMARY KEY AUTO_INCREMENT,
+    Name VARCHAR(255) NOT NULL
+);
+CREATE TABLE Job_Offer (
+    ID INT PRIMARY KEY AUTO_INCREMENT,
+    Title VARCHAR(255) NOT NULL,
+    Job_Description_ID INT,
+    Contract_ID INT,
+    Work_Mode_ID INT,
+    Company_ID INT,
+    Recruiter_ID INT,
+    FOREIGN KEY (Job_Description_ID) REFERENCES Job_Description (ID),
+    FOREIGN KEY (Contract_ID) REFERENCES Contract (ID),
+    FOREIGN KEY (Work_Mode_ID) REFERENCES Work_Mode (ID),
+    FOREIGN KEY (Company_ID) REFERENCES Company (ID),
+    FOREIGN KEY (Recruiter_ID) REFERENCES Recruiter (ID)
+);
+CREATE TABLE Skill (
+    ID INT PRIMARY KEY AUTO_INCREMENT,
+    Name VARCHAR(255) NOT NULL
+);
+CREATE TABLE User_Skill (
+    UserID INT,
+    SkillID INT,
+    FOREIGN KEY (UserID) REFERENCES User (ID),
+    FOREIGN KEY (SkillID) REFERENCES Skill (ID)
+);
+CREATE TABLE Education (
+    ID INT AUTO_INCREMENT,
+    UserID INT,
+    School VARCHAR(255),
+    Certification VARCHAR(255),
+    Level VARCHAR(255),
+    Field VARCHAR(255),
+    Start_Date DATE,
+    End_Date DATE,
+    PRIMARY KEY (ID),
+    FOREIGN KEY (UserID) REFERENCES User (ID)
+);
+ 
+CREATE TABLE Experience (
+    ID INT PRIMARY KEY AUTO_INCREMENT,
+    UserID INT,
+    Company VARCHAR(255),
+    Position VARCHAR(255),
+    Address VARCHAR(255),
+    Start_Date DATE,
+    End_Date DATE,
+    FOREIGN KEY (UserID) REFERENCES User (ID)
+);
+
+CREATE TABLE Like_Job_Offer (
+    ID INT PRIMARY KEY AUTO_INCREMENT,
+    Job_Offer_ID INT,
+    User_ID INT,
+    FOREIGN KEY (Job_Offer_ID) REFERENCES Job_Offer (ID),
+    FOREIGN KEY (User_ID) REFERENCES User (ID)
+);
+CREATE TABLE Like_User (
+    ID INT PRIMARY KEY AUTO_INCREMENT,
+    User_ID INT,
+    Recruiter_ID INT,
+    FOREIGN KEY (User_ID) REFERENCES User (ID),
+    FOREIGN KEY (Recruiter_ID) REFERENCES Recruiter (ID)
+);
+CREATE TABLE Matching (
+    ID INT PRIMARY KEY AUTO_INCREMENT,
+    Recruiter_ID INT,
+    User_ID INT,
+    Job_Offer_ID INT,
+    Matched_At TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    Status VARCHAR(50),
+    FOREIGN KEY (Recruiter_ID) REFERENCES Recruiter (ID),
+    FOREIGN KEY (User_ID) REFERENCES User (ID),
+    FOREIGN KEY (Job_Offer_ID) REFERENCES Job_Offer (ID)
+);
+
+CREATE TABLE User_Offer (
+    UserID INT,
+    OfferID INT,
+    PRIMARY KEY (UserID, OfferID),
+    FOREIGN KEY (UserID) REFERENCES User (ID),
+    FOREIGN KEY (OfferID) REFERENCES Job_Offer (ID)
+);
+ 
+CREATE TABLE Message (
+    ID INT PRIMARY KEY AUTO_INCREMENT,
+    Match_ID INT,
+    Sender_ID INT,
+    Receiver_ID INT,
+    Content TEXT,
+    Sent_At TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    Document_ID INT,
+    FOREIGN KEY (Match_ID) REFERENCES Matching (ID) ON DELETE CASCADE,
+    FOREIGN KEY (Sender_ID) REFERENCES User (ID) ON DELETE CASCADE,
+    FOREIGN KEY (Receiver_ID) REFERENCES User (ID) ON DELETE CASCADE,
+    FOREIGN KEY (Document_ID) REFERENCES Media (ID) ON DELETE SET NULL
+);
+ 
+CREATE TABLE Event (
+    ID INT PRIMARY KEY AUTO_INCREMENT,
+    Title VARCHAR(100) NOT NULL,
+    Description TEXT,
+    Start_date DATETIME,
+    End_date DATETIME,
+    City_ID INT,
+    Company_ID INT,
+    Event_Type VARCHAR(50),
+    Image VARCHAR(255),
+    UserID INT,
+    Created_At TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (City_ID) REFERENCES City (ID),
+    FOREIGN KEY (Company_ID) REFERENCES Company (ID),
+    FOREIGN KEY (UserID) REFERENCES User (ID)
+);
+
+CREATE TABLE Participation (
+    ID INT PRIMARY KEY AUTO_INCREMENT,
+    User_ID INT NOT NULL,
+    Event_ID INT NOT NULL,
+    Participation_Date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (User_ID) REFERENCES User (ID),
+    FOREIGN KEY (Event_ID) REFERENCES Event (ID),
+    UNIQUE (User_ID, Event_ID)
+);
+
+CREATE TABLE Complain (
+    ID INT AUTO_INCREMENT PRIMARY KEY,
+    userID INT NOT NULL,
+    Title VARCHAR(255) NOT NULL,
+    Description TEXT,
+    Image_Path VARCHAR(255),
+    Created_At DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (userID) REFERENCES User(ID)
+);
+
