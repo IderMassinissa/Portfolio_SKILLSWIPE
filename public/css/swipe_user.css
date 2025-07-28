@@ -1,0 +1,275 @@
+/* === STRUCTURE DE BASE === */
+body {
+    background: url('/public/images/blobs1.png') no-repeat center center fixed;
+    background-size: cover;
+    color: #222;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+.page-wrapper {
+    /* background-image: url('/public/images/blobs3.png'); */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: rgba(255, 255, 255, 0.538);
+    backdrop-filter: blur(2px);
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 90%;
+}
+
+.page-wrapper>h1 {
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+/* === ZONE DE SWIPE === */
+.swipe-zone {
+    background-image: url('/public/images/blobs3.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(2px);
+    border: 2px dashed #000;
+    padding: 2vh 2vw;
+    min-height: 80vh;
+}
+
+.swipe-zone h1 {
+    font-size: 2rem;
+    color: #000;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+/* === FORMULAIRE === */
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.filters input,
+.filters select {
+    flex: 1 1 12rem;
+    min-width: 10rem;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    font-size: 1rem;
+}
+
+.filters input::placeholder {
+    color: #999;
+}
+
+.filters input:focus,
+.filters select:focus {
+    outline: none;
+    border-color: #2980b9;
+    box-shadow: 0 0 5px rgba(41, 128, 185, 0.3);
+}
+
+.filter-submit {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.btn-submit {
+    background: linear-gradient(to right, #303f9f, #6a1b9a);
+    box-shadow: 0 25px 10px rgba(0, 0, 0, 0.05);
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-submit:hover {
+    background: linear-gradient(to right, #4350a3, #754195);
+    font-weight: 900;
+}
+
+/* === CONTENEUR DES CARTES === */
+.swipe-cards {
+    position: relative;
+    width: 100%;
+    max-width: 320px;
+    height: 460px;
+    margin: 0 auto;
+    touch-action: pan-y;
+}
+
+/* === CARTE STYLE TINDER === */
+.card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    height: 380px;
+    width: 280px;
+    padding: 1.5rem;
+    background-image: url('/public/images/blobs2.png');
+    box-shadow: 0 0 20px 15px #fcfbda;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 1rem;
+    text-align: center;
+    cursor: grab;
+    transition: transform 0.3s ease;
+    will-change: transform;
+}
+
+.card img {
+    width: 100px;
+    height: auto;
+    margin-bottom: 1rem;
+    border-radius: 50%;
+}
+
+/* === ACTIONS SWIPE === */
+.swipe-actions {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.btn-swipe {
+    font-size: 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.75rem 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-swipe[data-action="like"] {
+    background-color: #2ecc71;
+    color: #fff;
+}
+
+.btn-swipe[data-action="like"]:hover {
+    background-color: #27ae60;
+}
+
+.btn-swipe[data-action="dislike"] {
+    background-color: #e74c3c;
+    color: #fff;
+}
+
+.btn-swipe[data-action="dislike"]:hover {
+    background-color: #c0392b;
+}
+
+/* === POPUP MATCH === */
+.match-popup {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #2ecc71;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    z-index: 9999;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+/* === POPUP HELP === */
+
+.btn-help {
+    position: fixed;
+    top: 8rem;
+    right: 2rem;
+    background: linear-gradient(to right, #303f9f, #6a1b9a);
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 50%;
+    width: 3.5rem;
+    height: 3.5rem;
+    text-align: center;
+    line-height: 3.1rem;
+    cursor: pointer;
+    z-index: 50;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.2s ease;
+}
+
+.btn-help:hover {
+    background: linear-gradient(to right, #4350a3, #754195);
+    color: red;
+}
+
+.help-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.help-content {
+    background: #fff;
+    padding: 2rem;
+    border: 2px solid #000;
+    border-radius: 1rem;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+}
+
+.hidden {
+    display: none;
+}
+
+.btn-close {
+    margin-top: 20px;
+}
+
+@media (max-width: 480px) {
+
+    .btn-submit {
+        margin: 0 auto;
+        display: block;
+    }
+
+    .card {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .swipe-cards {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 460px;
+    }
+}

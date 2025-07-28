@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
+body {
+    font-family       : 'Plus Jakarta Sans';
+    margin: 0;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #2c3e50;
+}
+
+.add-button {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.add-button button {
+    background: linear-gradient(to right, #303f9f, #6a1b9a);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.add-button button:hover {
+    background: linear-gradient(to right, #4350a3, #754195);
+    font-weight:900;
+    text-decoration: none;
+}
+
+
+.offre {
+    background-image: url('/public/images/blobs3.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    border: 1px solid #e1e1e1;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 0 auto 25px auto;
+    max-width: 800px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.3s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.offre:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+}
+
+.offre h2 {
+    margin-top: 0;
+    color: #34495e;
+}
+
+.offre p {
+    margin: 6px 0;
+}
+
+.offre strong {
+    color: #555;
+}
+
+.actions {
+    margin-top: 20px;
+}
+
+.actions a button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 14px;
+    margin-right: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.actions a button:hover {
+    background-color: #2980b9;
+}
+
+@media (max-width: 600px) {
+    .offre {
+        padding: 15px;
+    }
+
+    .actions a button {
+        margin-bottom: 8px;
+        display: block;
+        width: 100%;
+    }
+
+    .actions {
+        display: flex;
+        flex-direction: column;
+    }
+}

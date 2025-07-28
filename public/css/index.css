@@ -1,0 +1,293 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
+* {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 650;
+  font-style: normal;
+  box-sizing: border-box;
+  margin-left: 0;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  align-items: center;
+  background: url('/public/images/blobs1.png') no-repeat;
+  background-size: cover;
+}
+
+.content-container {
+  padding-left: 2rem;
+  padding-right: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+button {
+  padding: 0.8rem;
+  background: linear-gradient(to right, #3f51b5, #7b1fa2);
+  border: none;
+  color: white;
+  font-weight: bold;
+  margin-top: 0.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+button:hover {
+  background: linear-gradient(to right, #303f9f, #6a1b9a);
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+.logo {
+  width: 6rem;
+  height: auto;
+  text-align: center;
+}
+
+.logo-img {
+  display: block;
+  margin: 0 auto;
+  width: 6rem;
+  height: auto;
+}
+
+.logo-wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.header {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+nav ul {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  float: left;
+  flex-direction: row;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+}
+
+.login {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-right: 2rem;
+  position: relative;
+}
+
+.login button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  float: inline-end;
+}
+
+main {
+  text-align: center;
+}
+
+ul {
+  display: flex;
+  flex-direction: row;
+  gap: 0.7rem;
+  position: relative;
+  float: inline-start;
+}
+
+li {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  transition: all 0.4s;
+}
+
+a:hover {
+  font-size: large;
+  font-weight: 800;
+  color: rgb(87, 20, 245);
+  text-decoration: none;
+}
+
+#main-paragraph {
+  font-weight: 250;
+}
+
+#sign-up {
+  border-radius: 0.25rem;
+  background: linear-gradient(to right, #303f9f, #6a1b9a);
+  border: none;
+  color: #ffffff;
+  text-align: center;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 0.313rem;
+}
+
+#sign-up>span {
+  background: linear-gradient(to right, #303f9f, #6a1b9a);
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+#sign-up span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -1.25rem;
+  transition: 0.5s;
+}
+
+#sign-up:hover span {
+  padding-right: 1.563rem;
+}
+
+#sign-up:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.match-section {
+  background-color: #9174d0a3;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.match-info {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem 0;
+}
+
+.match-info-left>h2 {
+  position: relative;
+  font-size: 3rem;
+}
+
+.match-info-left>p {
+  font-size: 1.9rem;
+}
+
+#swipe-match {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+footer {
+  text-align: center;
+}
+
+.back {
+  display: inline-block;
+  margin-top: 1.5rem;
+  margin-bottom: 10rem;
+  background-color: #673ab7;
+  color: white;
+  padding: 0.6rem 1rem;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.nav-section,
+.login {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+.nav-section {
+  justify-content: flex-start;
+}
+
+.login {
+  justify-content: flex-end;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+
+  .content-container {
+    padding: 1rem;
+  }
+
+  .header {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .login {
+    justify-content: center;
+    margin-right: 0;
+  }
+
+  .match-info {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
+  }
+
+  .match-info-left>h2 {
+    font-size: 2.2rem;
+  }
+
+  .match-info-left>p {
+    font-size: 1.3rem;
+  }
+
+  #sign-up {
+    font-size: 1rem;
+  }
+
+  #swipe-match {
+    max-width: 90%;
+    max-height: 250px;
+  }
+}

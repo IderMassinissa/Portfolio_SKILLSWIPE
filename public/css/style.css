@@ -1,0 +1,302 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
+/* === BASE === */
+* {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  color: black;
+  background: url('/public/images/blobs1.png') no-repeat center center fixed;
+  background-size: cover;
+  background-color: #f5f5f5;
+}
+
+p,
+a {
+  font-size: 1.2rem;
+  color: black;
+  text-decoration: none;
+  transition: all 1s ease;
+}
+
+a:hover {
+  font-size: 20px;
+  font-weight: 900;
+  color: rgb(87, 20, 245);
+  text-decoration: none;
+}
+
+.logo {
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: black;
+  margin-left: 0.5rem;
+  white-space: nowrap;
+}
+
+.pfp-user img,
+.pfp-user {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 25px;
+}
+
+/* === CONTAINER GLOBAL === */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* === HEADER (nouveau layout) === */
+.header-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background-color: white;
+}
+
+.header-left,
+.header-center,
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+.header-center {
+  flex: 1;
+  justify-content: center;
+}
+
+.header-right {
+  gap: 1rem;
+}
+
+/* === NAVIGATION === */
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  flex: 1;
+}
+
+nav a {
+  font-weight: bold;
+  transition: color 0.2s ease;
+}
+
+/* === FOOTER === */
+.footer-top {
+  background-color: rgb(88, 88, 88);
+  padding: 1rem 0;
+  width: 100%;
+}
+
+.footer-top nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.footer-top nav a {
+  color: white;
+  font-size: 1rem;
+}
+
+.footer-top nav a:hover {
+  color: #2ecc71;
+}
+
+.footer-bottom * {
+  text-align: center;
+  padding: 0.5rem;
+  background-color: rgb(88, 88, 88);
+  color: white;
+  font-size: 1rem;
+}
+
+/* === UTILITAIRES === */
+.hidden {
+  display: none !important;
+}
+
+.mt-1 {
+  margin-top: 1rem;
+}
+
+.mb-1 {
+  margin-bottom: 1rem;
+}
+
+/* === MENU PLEIN ÉCRAN === */
+.burger-menu {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+  z-index: 1000;
+  padding: 10px;
+}
+
+.burger-menu span {
+  width: 25px;
+  height: 3px;
+  background: black;
+  transition: all 0.3s ease;
+}
+
+.fullscreen-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  transition: opacity 0.5s ease;
+}
+
+.fullscreen-menu nav {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  text-align: center;
+}
+
+.fullscreen-menu nav a {
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.fullscreen-menu nav a:hover {
+  color: #2ecc71;
+}
+
+.close-menu {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: transparent;
+  color: white;
+  font-size: 2rem;
+  border: none;
+  cursor: pointer;
+  z-index: 1001;
+  transition: color 0.3s ease;
+}
+
+.close-menu:hover {
+  color: #2ecc71;
+}
+
+/* === LOGOUT IMAGE === */
+.logout-icon img.logout-img {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+  transition: opacity 0.3s ease;
+}
+
+.logout-icon:hover img.logout-img {
+  opacity: 0.6;
+}
+
+/* === RESPONSIVE === */
+/* Menu burger visible uniquement en mobile */
+@media screen and (max-width: 768px) {
+  .header-left {
+    display: block;
+  }
+
+  .burger-menu {
+    display: flex;
+  }
+
+  .nav-desktop {
+    display: none;
+  }
+
+  .header-center {
+    justify-content: center;
+    flex-grow: 1;
+  }
+
+  .fullscreen-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    justify-content: flex-start;
+    padding-top: 5rem;
+    z-index: 1000;
+  }
+
+  .fullscreen-menu nav {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .fullscreen-menu a {
+    font-size: 1.2rem;
+    color: #000;
+    text-decoration: none;
+  }
+
+  .close-menu {
+    position: absolute;
+    top: 1rem;
+    left: 2.5rem;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+}
+
+@media (min-width: 769px) {
+  .nav-desktop {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-grow: 1;
+  }
+
+  .header-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .header-left,
+  .header-right {
+    flex: 0 0 auto;
+  }
+
+  .header-center {
+    flex: 1 1 auto;
+    display: flex;
+    justify-content: center;
+  }
+}

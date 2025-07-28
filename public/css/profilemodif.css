@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
+* {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 650;
+  font-style: normal;
+}
+
+body {
+  margin: 2rem;
+  background-image: url("/public/images/profile-background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 3rem;
+  color: #222;
+}
+
+form {
+  background-color: rgb(240, 240, 240);
+  padding: 2rem;
+  border-radius: 10px;
+  max-width: 600px;
+  margin: 2rem auto;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+}
+
+h2 {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: .5rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: bold;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: .6rem;
+  margin-top: .5rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  background-color: #fff;
+}
+
+.section {
+  margin-top: 2rem;
+}
+
+.add-btn {
+  height: 3rem;
+  width: 3rem;
+  background: linear-gradient(to right, #6189dd, #7b1fa2, #d40486);
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 550;
+  margin-top: 1.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+button[type = "submit"] {
+  width: auto;
+  padding: 0.8rem 1.5rem;
+  background: linear-gradient(to right, #3f51b5, #7b1fa2);
+  border: none;
+  color: white;
+  font-weight: bold;
+  margin-top: 2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.add-btn:hover,
+.submit-btn:hover {
+  background: linear-gradient(to right, #303f9f, #6a1b9a);
+}
+
+input[type="file"] {
+  display: block;
+  width: fit-content;
+  padding: 0.5rem 1rem;
+  background: linear-gradient(to right, #3f51b5, #7b1fa2);
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 0.5rem;
+}
+
+small{
+  font-style: italic;
+  color: red;
+}
+
+@media screen and (max-width: 640px) {
+  form {
+    padding: 1.5rem;
+    margin: 1.5rem;
+  }
+}
+

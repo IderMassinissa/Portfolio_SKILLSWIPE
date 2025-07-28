@@ -1,0 +1,127 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+body {
+    background: url('/SkillSwipe/public/images/blobs1.png') no-repeat center center fixed;
+    background-size: cover;
+    color: #2c2c2c;
+    min-height: 100vh;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    padding: 2rem 1rem;
+}
+
+.calendar-container {
+    width: 100%;
+    max-width: 1000px;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 16px;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    font-weight: 700;
+    font-size: 2.5rem;
+    color: #5a3e99;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.retour {
+    align-self: flex-start;
+    margin-bottom: 1.5rem;
+    color: #6a4f9a;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.25s ease;
+}
+
+.retour:hover {
+    color: #442c6e;
+}
+
+.months {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #5a3e99;
+}
+
+.months a {
+    color: #6a4f9a;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.months a:hover {
+    color: #442c6e;
+}
+
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 1rem;
+    width: 100%;
+    min-height: 400px;
+}
+
+.day {
+    background: #fff;
+    border-radius: 12px;
+    padding: 1rem;
+    box-shadow: 0 8px 18px rgba(145, 116, 208, 0.15);
+    min-height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.day-number {
+    font-weight: 700;
+    color: #5a3e99;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.event {
+    background: #f4f3fc;
+    border-left: 4px solid #7b1fa2;
+    padding: 0.5rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    margin-bottom: 0.4rem;
+    color: #3b3056;
+    box-shadow: 0 2px 6px rgba(123, 31, 162, 0.1);
+    word-break: break-word;
+}
+
+.event strong {
+    color: #5a3e99;
+}
+
+@media (max-width: 768px) {
+    .calendar {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .months {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}

@@ -1,0 +1,126 @@
+/* === FOND & STRUCTURE === */
+body {
+    background: url('/public/images/blobs1.png') no-repeat center center fixed;
+    background-size: cover;
+    color: #222;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+.page-wrapper {
+    background-color: #fefefe;
+    border: 2px solid #000;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 90%;
+}
+
+.page-wrapper>h1 {
+    margin: 0 auto 1em auto;
+    text-align: center;
+    display: block;
+    width: 100%;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+/* === BOUTON "MODIFIER MON PROFIL"  === */
+.btn.btn-profil {
+    background-color: #2980b9;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    border: 2px solid #000;
+    border-radius: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    display: block;
+    margin: 1rem auto;
+    width: fit-content;
+    text-align: center;
+}
+
+.btn.btn-profil:hover {
+    background-color: #1c5980;
+    transform: scale(1.05);
+}
+
+/* === FORMULAIRE DE RECHERCHE === */
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.filters input,
+.filters select {
+    flex: 1 1 12rem;
+    min-width: 10rem;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    font-size: 1rem;
+}
+
+.filters input::placeholder {
+    color: #999;
+}
+
+.filters input:focus,
+.filters select:focus {
+    outline: none;
+    border-color: #2980b9;
+    box-shadow: 0 0 5px rgba(41, 128, 185, 0.3);
+}
+
+.filter-submit {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.btn-submit {
+    background-color: #2980b9;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    border: 2px solid #000;
+    border-radius: 0.5rem;
+    padding: 0.75rem 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-submit:hover {
+    background-color: #1c5980;
+}
+
+/* === CONTENEUR DE LA CARTE === */
+.swipe-cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+}
+
+/* === CARTE === */
+.card {
+    background: #fff;
+    border: 2px solid #000;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    width: 280px;
+    max-width: 100%;
+    text-align: center;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    cursor: grab;
+}

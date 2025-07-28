@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+body {
+  background: #f4f3fa url('/public/images/blobs1.png') no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100vh;
+  margin: 0;
+  color: #2c2c2c;
+}
+
+h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin: 2rem 0 1rem;
+  text-align: center;
+  color: #5a3e99;
+}
+
+.retour {
+  display: block;
+  width: fit-content;
+  margin: 1rem auto;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 1rem;
+  color: #6a4f9a;
+  transition: color 0.3s ease;
+  text-align: center;
+}
+
+.retour:hover {
+  color: #442c6e;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.event-detail {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(145, 116, 208, 0.2);
+  padding: 2rem 2.5rem;
+  width: 100%;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.event-detail img {
+  height: 50%;
+  width: 50%;
+  height: auto;
+  margin-bottom: 1.3rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.event-detail h2 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #3b3056;
+  margin-bottom: 1rem;
+}
+
+.event-detail p {
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+  width: 100%;
+  text-align: left;
+  color: #444;
+}
+
+.event-detail p strong {
+  color: #6a4f9a;
+}
+
+.cta-button {
+  display: inline-block;
+  margin-top: 1.5rem;
+  background: linear-gradient(90deg, #3f51b5, #7b1fa2);
+  color: white;
+  padding: 0.75rem 1.4rem;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 1rem;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 6px 14px rgba(63, 81, 181, 0.3);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cta-button:hover {
+  background: linear-gradient(90deg, #303f9f, #6a1b9a);
+  box-shadow: 0 12px 16px rgba(48, 63, 159, 0.35),
+    0 20px 40px rgba(106, 27, 154, 0.3);
+}
+
+.retour-wrapper {
+  position: absolute;
+  top: 85px;
+  left: 20px;
+  z-index: 10;
+}
+
+.retour {
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 1rem;
+  color: #6a4f9a;
+  transition: color 0.3s ease;
+}
+
+.retour:hover {
+  color: #442c6e;
+}

@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
+.bodyoffer {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    position: relative;
+    min-height: 100vh;
+    padding: 5rem 1rem 2rem 1rem;
+}
+
+a.retour {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    display: inline-block;
+    color: #3498db;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    z-index: 10;
+}
+
+a.retour:hover {
+    color: #1d6fa5;
+}
+
+.flipWrapper {
+    width: 100%;
+    max-width: 700px;
+    perspective: 1000px;
+    margin: 0 auto;
+}
+
+.offerCard {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    transition: transform 0.8s ease;
+    transform-style: preserve-3d;
+}
+
+.flipWrapper:hover .offerCard {
+    transform: rotateY(180deg);
+}
+
+.offer-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: 2rem;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    background-image: url('/public/images/blobs3.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+}
+
+.offerFront {
+    z-index: 2;
+}
+
+.offerBack {
+    transform: rotateY(180deg);
+    text-align: center;
+}
+
+h1 {
+    font-size: 1.8rem;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+h2 {
+    font-size: 1.2rem;
+    color: #7f8c8d;
+    margin-bottom: 1.5rem;
+    font-weight: normal;
+}
+
+span {
+    display: block;
+    font-weight: 600;
+    color: #34495e;
+    margin-top: 1rem;
+}
+
+.info {
+    margin: 0.5rem 0 1rem;
+    padding: 0.75rem 1rem;
+    background-color: #f8f9fa;
+    border-left: 4px solid #3498db;
+    border-radius: 6px;
+    font-size: 1rem;
+    color: #333;
+}
+
+a.actions button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 14px;
+    margin-right: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+a.actions button:hover {
+    background-color: #2980b9;
+}
+
+.userPic img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-top: 1rem;
+}
+
+/* ======= RESPONSIVE ======= */
+@media (max-width: 768px) {
+
+    .bodyoffer {
+        align-items: center;
+        padding: 0rem 1rem 2rem 1rem;
+    }
+
+    .flipWrapper {
+        max-width: 100%;
+    }
+
+    .offerCard {
+        height: auto;
+        min-height: 420px;
+    }
+
+    .offer-face {
+        padding: 1.5rem;
+        overflow-y: auto;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1rem;
+    }
+
+    .info {
+        font-size: 0.95rem;
+    }
+
+    a.actions button {
+        width: 100%;
+        margin: 0.5rem 0;
+    }
+
+    .userPic img {
+        width: 60px;
+        height: 60px;
+    }
+}
